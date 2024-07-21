@@ -1,22 +1,6 @@
 local source = {}
 
 local symbol_table = {
-    {word = "\\Gamma", label = "\\Gamma Γ", insertText = "Γ", filter_text = "\\Gamma"},
-    {word = "\\Delta", label = "\\Delta Δ", insertText = "Δ", filter_text = "\\Delta"},
-    {word = "\\Theta", label = "\\Theta Θ", insertText = "Θ", filter_text = "\\Theta"},
-    {word = "\\Lambda", label = "\\Lambda Λ", insertText = "Λ", filter_text = "\\Lambda"},
-    {word = "\\Xi", label = "\\Xi Ξ", insertText = "Ξ", filter_text = "\\Xi"},
-    {word = "\\Pi", label = "\\Pi Π", insertText = "Π", filter_text = "\\Pi"},
-    {word = "\\Sigma", label = "\\Sigma Σ", insertText = "Σ", filter_text = "\\Sigma"},
-    {word = "\\Phi", label = "\\Phi Φ", insertText = "Φ", filter_text = "\\Phi"},
-    {word = "\\Psi", label = "\\Psi Ψ", insertText = "Ψ", filter_text = "\\Psi"},
-    {word = "\\Omega", label = "\\Omega Ω", insertText = "Ω", filter_text = "\\Omega"},
-    {word = "\\Qoppa", label = "\\Qoppa Ϙ", insertText = "Ϙ", filter_text = "\\Qoppa"},
-    {word = "\\Stigma", label = "\\Stigma Ϛ", insertText = "Ϛ", filter_text = "\\Stigma"},
-    {word = "\\Digamma", label = "\\Digamma Ϝ", insertText = "Ϝ", filter_text = "\\Digamma"},
-    {word = "\\Koppa", label = "\\Koppa Ϟ", insertText = "Ϟ", filter_text = "\\Koppa"},
-    {word = "\\Sampi", label = "\\Sampi Ϡ", insertText = "Ϡ", filter_text = "\\Sampi"},
-
     {word = "\\alpha", label = "\\alpha α", insertText = "α", filter_text = "\\alpha"},
     {word = "\\beta", label = "\\beta β", insertText = "β", filter_text = "\\beta"},
     {word = "\\varbeta", label = "\\varbeta ϐ", insertText = "ϐ", filter_text = "\\varbeta"},
@@ -39,6 +23,7 @@ local symbol_table = {
     {word = "\\pi", label = "\\pi π", insertText = "π", filter_text = "\\pi"},
     {word = "\\varpi", label = "\\varpi ϖ", insertText = "ϖ", filter_text = "\\varpi"},
     {word = "\\rho", label = "\\rho ρ", insertText = "ρ", filter_text = "\\rho"},
+    {word = "\\varrho", label = "\\varrho ϱ", insertText = "ϱ", filter_text = "\\varrho"},
     {word = "\\varsigma", label = "\\varsigma ς", insertText = "ς", filter_text = "\\varsigma"},
     {word = "\\sigma", label = "\\sigma σ", insertText = "σ", filter_text = "\\sigma"},
     {word = "\\tau", label = "\\tau τ", insertText = "τ", filter_text = "\\tau"},
@@ -53,28 +38,43 @@ local symbol_table = {
     {word = "\\digamma", label = "\\digamma ϝ", insertText = "ϝ", filter_text = "\\digamma"},
     {word = "\\koppa", label = "\\koppa ϟ", insertText = "ϟ", filter_text = "\\koppa"},
     {word = "\\sampi", label = "\\sampi ϡ", insertText = "ϡ", filter_text = "\\sampi"},
-    {word = "\\varrho", label = "\\varrho ϱ", insertText = "ϱ", filter_text = "\\varrho"},
 
-    {word = "\\aleph", label = "\\aleph ℵ", insertText = "ℵ", filter_text = "\\aleph"},
-    {word = "\\beth", label = "\\beth ℶ", insertText = "ℶ", filter_text = "\\beth"},
-    {word = "\\gimel", label = "\\gimel ℷ", insertText = "ℷ", filter_text = "\\gimel"},
-    {word = "\\daleth", label = "\\daleth ℸ", insertText = "ℸ", filter_text = "\\daleth"},
+    {word = "\\Gamma", label = "\\Gamma Γ", insertText = "Γ", filter_text = "\\Gamma"},
+    {word = "\\Delta", label = "\\Delta Δ", insertText = "Δ", filter_text = "\\Delta"},
+    {word = "\\Theta", label = "\\Theta Θ", insertText = "Θ", filter_text = "\\Theta"},
+    {word = "\\Lambda", label = "\\Lambda Λ", insertText = "Λ", filter_text = "\\Lambda"},
+    {word = "\\Xi", label = "\\Xi Ξ", insertText = "Ξ", filter_text = "\\Xi"},
+    {word = "\\Pi", label = "\\Pi Π", insertText = "Π", filter_text = "\\Pi"},
+    {word = "\\Sigma", label = "\\Sigma Σ", insertText = "Σ", filter_text = "\\Sigma"},
+    {word = "\\Phi", label = "\\Phi Φ", insertText = "Φ", filter_text = "\\Phi"},
+    {word = "\\Psi", label = "\\Psi Ψ", insertText = "Ψ", filter_text = "\\Psi"},
+    {word = "\\Omega", label = "\\Omega Ω", insertText = "Ω", filter_text = "\\Omega"},
+    {word = "\\Qoppa", label = "\\Qoppa Ϙ", insertText = "Ϙ", filter_text = "\\Qoppa"},
+    {word = "\\Stigma", label = "\\Stigma Ϛ", insertText = "Ϛ", filter_text = "\\Stigma"},
+    {word = "\\Digamma", label = "\\Digamma Ϝ", insertText = "Ϝ", filter_text = "\\Digamma"},
+    {word = "\\Koppa", label = "\\Koppa Ϟ", insertText = "Ϟ", filter_text = "\\Koppa"},
+    {word = "\\Sampi", label = "\\Sampi Ϡ", insertText = "Ϡ", filter_text = "\\Sampi"},
 
-    {word = "\\leftarrow", label = "\\leftarrow ←", insertText = "←", filter_text = "\\leftarrow"},
-    {word = "\\uparrow", label = "\\uparrow ↑", insertText = "↑", filter_text = "\\uparrow"},
-    {word = "\\rightarrow", label = "\\rightarrow →", insertText = "→", filter_text = "\\rightarrow"},
-    {word = "\\downarrow", label = "\\downarrow ↓", insertText = "↓", filter_text = "\\downarrow"},
-    {word = "\\leftrightarrow", label = "\\leftrightarrow ↔", insertText = "↔", filter_text = "\\leftrightarrow"},
-    {word = "\\mapsto", label = "\\mapsto ↦", insertText = "↦", filter_text = "\\mapsto"},
-    {word = "\\MapsDown", label = "\\MapsDown ↧", insertText = "↧", filter_text = "\\MapsDown"},
-    {word = "\\mapsdown", label = "\\mapsdown ↧", insertText = "↧", filter_text = "\\mapsdown"},
-    {word = "\\lightning", label = "\\lightning ↯", insertText = "↯", filter_text = "\\lightning"},
-    {word = "\\Longleftarrow", label = "\\Longleftarrow ⟸", insertText = "⟸", filter_text = "\\Longleftarrow"},
-    {word = "\\Longrightarrow", label = "\\Longrightarrow ⟹", insertText = "⟹", filter_text = "\\Longrightarrow"},
+    {word = "\\forall", label = "\\forall ∀", insertText = "∀", filter_text = "\\forall"},
+    {word = "\\exists", label = "\\exists ∃", insertText = "∃", filter_text = "\\exists"},
+    {word = "\\nexists", label = "\\nexists ∄", insertText = "∄", filter_text = "\\nexists"},
+    {word = "\\in", label = "\\in ∈", insertText = "∈", filter_text = "\\in"},
+    {word = "\\notin", label = "\\notin ∉", insertText = "∉", filter_text = "\\notin"},
+    {word = "\\ni", label = "\\ni ∋", insertText = "∋", filter_text = "\\ni"},
+    {word = "\\nni", label = "\\nni ∌", insertText = "∌", filter_text = "\\nni"},
+    {word = "\\therefore", label = "\\therefore ∴", insertText = "∴", filter_text = "\\therefore"},
+    {word = "\\because", label = "\\because ∵", insertText = "∵", filter_text = "\\because"},
+
+    {word = "\\Finv", label = "\\Finv Ⅎ", insertText = "Ⅎ", filter_text = "\\Finv"},
+    {word = "\\varnothing", label = "\\varnothing ∅", insertText = "∅", filter_text = "\\varnothing"},
+    {word = "\\infty", label = "\\infty ∞", insertText = "∞", filter_text = "\\infty"},
+
+    {word = "\\ldots", label = "\\ldots …", insertText = "…", filter_text = "\\ldots"},
+    {word = "\\cdots", label = "\\cdots ⋯", insertText = "⋯", filter_text = "\\cdots"},
+    {word = "\\vdots", label = "\\vdots ⋮", insertText = "⋮", filter_text = "\\vdots"},
 
     {word = "\\neg", label = "\\neg ¬", insertText = "¬", filter_text = "\\neg"},
     {word = "\\pm", label = "\\pm ±", insertText = "±", filter_text = "\\pm"},
-    {word = "\\cdotp", label = "\\cdotp ·", insertText = "·", filter_text = "\\cdotp"},
     {word = "\\times", label = "\\times ×", insertText = "×", filter_text = "\\times"},
     {word = "\\partial", label = "\\partial ∂", insertText = "∂", filter_text = "\\partial"},
     {word = "\\nabla", label = "\\nabla ∇", insertText = "∇", filter_text = "\\nabla"},
@@ -118,18 +118,7 @@ local symbol_table = {
     {word = "\\star", label = "\\star ⋆", insertText = "⋆", filter_text = "\\star"},
     {word = "\\ast", label = "\\ast ∗", insertText = "∗", filter_text = "\\ast"},
     {word = "\\circ", label = "\\circ ∘", insertText = "∘", filter_text = "\\circ"},
-    {word = "\\bullet", label = "\\bullet ∙", insertText = "∙", filter_text = "\\bullet"},
     {word = "\\propto", label = "\\propto ∝", insertText = "∝", filter_text = "\\propto"},
-
-    {word = "\\forall", label = "\\forall ∀", insertText = "∀", filter_text = "\\forall"},
-    {word = "\\exists", label = "\\exists ∃", insertText = "∃", filter_text = "\\exists"},
-    {word = "\\nexists", label = "\\nexists ∄", insertText = "∄", filter_text = "\\nexists"},
-    {word = "\\in", label = "\\in ∈", insertText = "∈", filter_text = "\\in"},
-    {word = "\\notin", label = "\\notin ∉", insertText = "∉", filter_text = "\\notin"},
-    {word = "\\ni", label = "\\ni ∋", insertText = "∋", filter_text = "\\ni"},
-    {word = "\\nni", label = "\\nni ∌", insertText = "∌", filter_text = "\\nni"},
-    {word = "\\therefore", label = "\\therefore ∴", insertText = "∴", filter_text = "\\therefore"},
-    {word = "\\because", label = "\\because ∵", insertText = "∵", filter_text = "\\because"},
 
     {word = "\\dagger", label = "\\dagger †", insertText = "†", filter_text = "\\dagger"},
     {word = "\\ddagger", label = "\\ddagger ‡", insertText = "‡", filter_text = "\\ddagger"},
@@ -140,17 +129,21 @@ local symbol_table = {
     {word = "\\trprime", label = "\\trprime ‴", insertText = "‴", filter_text = "\\trprime"},
     {word = "\\qprime", label = "\\qprime ⁗", insertText = "⁗", filter_text = "\\qprime"},
 
-    {word = "\\Finv", label = "\\Finv Ⅎ", insertText = "Ⅎ", filter_text = "\\Finv"},
-    {word = "\\varnothing", label = "\\varnothing ∅", insertText = "∅", filter_text = "\\varnothing"},
-    {word = "\\infty", label = "\\infty ∞", insertText = "∞", filter_text = "\\infty"},
-
-    {word = "\\ldots", label = "\\ldots …", insertText = "…", filter_text = "\\ldots"},
-    {word = "\\cdots", label = "\\cdots ⋯", insertText = "⋯", filter_text = "\\cdots"},
-    {word = "\\vdots", label = "\\vdots ⋮", insertText = "⋮", filter_text = "\\vdots"}
+    {word = "\\leftarrow", label = "\\leftarrow ←", insertText = "←", filter_text = "\\leftarrow"},
+    {word = "\\uparrow", label = "\\uparrow ↑", insertText = "↑", filter_text = "\\uparrow"},
+    {word = "\\rightarrow", label = "\\rightarrow →", insertText = "→", filter_text = "\\rightarrow"},
+    {word = "\\downarrow", label = "\\downarrow ↓", insertText = "↓", filter_text = "\\downarrow"},
+    {word = "\\leftrightarrow", label = "\\leftrightarrow ↔", insertText = "↔", filter_text = "\\leftrightarrow"},
+    {word = "\\mapsto", label = "\\mapsto ↦", insertText = "↦", filter_text = "\\mapsto"},
+    {word = "\\MapsDown", label = "\\MapsDown ↧", insertText = "↧", filter_text = "\\MapsDown"},
+    {word = "\\mapsdown", label = "\\mapsdown ↧", insertText = "↧", filter_text = "\\mapsdown"},
+    {word = "\\lightning", label = "\\lightning ↯", insertText = "↯", filter_text = "\\lightning"},
+    {word = "\\Longleftarrow", label = "\\Longleftarrow ⟸", insertText = "⟸", filter_text = "\\Longleftarrow"},
+    {word = "\\Longrightarrow", label = "\\Longrightarrow ⟹", insertText = "⟹", filter_text = "\\Longrightarrow"}
 }
 
 function source:is_available()
-    -- In TeX we want to insert the literal command, not unicode.
+    -- In TeX we want to insert the literal command, not the character.
     return vim.bo.filetype ~= "tex"
 end
 
