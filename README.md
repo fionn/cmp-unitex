@@ -1,5 +1,9 @@
 # cmp-UniTeX
 
+<div align="center">
+    <a href="https://asciinema.org/a/2ZKbYd0UHQDJaXtTLwbcSeiar"><img width="500" alt="Example of cmp-unitex" src="https://github.com/user-attachments/assets/77f02595-73ba-401b-8645-172002a45ca7"></a>
+</div>
+
 ## Overview
 
 [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) completion source to insert Unicode symbols by their $\mathrm{\TeX}$ command.
